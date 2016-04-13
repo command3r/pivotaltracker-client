@@ -107,6 +107,14 @@ module PivotalTracker
       @client.request(:get, "projects/#{project_id}/stories", query: query).parsed_body
     end
 
+    def story(project_id, story_id, query: {})
+      @client.request(:get, "projects/#{project_id}/stories/#{story_id}",  query: query).parsed_body
+    end
+
+    def story_transitions(project_id, story_id, query: {})
+      @client.request(:get, "projects/#{project_id}/stories/#{story_id}/transitions",  query: query).parsed_body
+    end
+
     def memberships(project_id, query: {})
       @client.request(:get, "projects/#{project_id}/memberships", query: query).parsed_body
     end
